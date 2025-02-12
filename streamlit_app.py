@@ -49,7 +49,7 @@ def reset_durumlar():
 
 # 📌 Zamanlayıcı fonksiyonu (Her gün saat 03:00'te çalışır)
 def schedule_task():
-    schedule.every().day.at("23:40").do(reset_durumlar)
+    schedule.every().day.at("23:29").do(reset_durumlar)
 
     while True:
         schedule.run_pending()
