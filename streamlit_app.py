@@ -52,7 +52,7 @@ sayfa = st.sidebar.radio("Seçenekler:", ["Haritayı Göster", "Kayıt Ol", "Dur
 
 # **Haritayı Göster Sayfası**
 if sayfa == "Haritayı Göster":
-    st.title("📍 Bugün Servis Kullanacaklar (Sadece Bugün Kullanıcılar)")
+    st.title("📍 Servis Kullanacaklar (Sadece Bugün Kullanıcılar)")
 
     kullanicilar = load_users()
     durumlar = load_durumlar()
