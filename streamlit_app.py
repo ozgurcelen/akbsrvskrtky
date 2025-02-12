@@ -4,7 +4,6 @@ import os
 import time
 import threading
 from datetime import datetime
-import schedule
 import folium
 from streamlit_folium import st_folium
 import pandas as pd
@@ -46,24 +45,6 @@ def reset_durumlar():
         print("✅ Tüm kullanıcılar pasif hale getirildi.")
     except Exception as e:
         print(f"❌ Hata oluştu: {e}")
-
-# 📌 Zamanlayıcı fonksiyonu (Her gün saat 03:00'te çalışır)
-def schedule_task():
-    schedule.every().day.at("23:29").do(reset_durumlar)
-
-    while True:
-        schedule.run_pending()
-        time.sleep(60)
-
-# 📌 Thread ile Arka Planda Çalıştır
-def start_scheduler():
-    thread = threading.Thread(target=schedule_task, daemon=True)
-    thread.start()
-
-# 📌 Streamlit Uygulaması Başlarken Scheduler'ı Çalıştır
-if "scheduler_started" not in st.session_state:
-    st.session_state.scheduler_started = True
-    start_scheduler()
 
 # 📌 Sidebar Menüsü
 st.sidebar.title("📌 Menü")
